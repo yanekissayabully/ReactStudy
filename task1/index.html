@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Async Tasks</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Async Tasks</h1>
+
+<h2>Tasks</h2>
+<div id="tasks"></div>
+<button id="runAllBtn">Run All Tasks</button>
+<p id="allStatus"></p>
+
+<hr>
+
+<h2>Sequential vs Concurrent</h2>
+<button id="runSeqBtn">Run Sequential</button>
+<button id="runConcBtn">Run Concurrent</button>
+<pre id="compareResult">-</pre>
+
+<hr>
+
+<h2>Event Loop Demo</h2>
+<h3>Акинатор Прогноз:</h3>
+<pre>
+1 - start
+2 - async before await
+3 - end (sync)
+4 - promise 1 (microtask)
+5 - async after await (microtask)
+6 - promise 2 (microtask)
+7 - timeout 1 (macrotask)
+8 - timeout 2 (macrotask)
+</pre>
+
+<button id="runLoopBtn">Run Event Loop Demo</button>
+<h3>Реальный вывод:</h3>
+<pre id="loopResult"></pre>
+
+<script src="script.js"></script>
+</body>
+</html>

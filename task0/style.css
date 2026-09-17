@@ -1,0 +1,94 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  background: #f4f5f7;
+  color: #222;
+  line-height: 1.5;
+}
+
+header {
+  background: #24292f;
+  color: #fff;
+  padding: 28px 20px;
+  text-align: center;
+}
+
+header h1 {
+  margin: 0 0 6px;
+  font-size: 26px;
+}
+
+.subtitle {
+  margin: 0;
+  color: #c9d1d9;
+  font-size: 14px;
+}
+
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+section {
+  background: #fff;
+  border: 1px solid #e1e4e8;
+  border-radius: 8px;
+  padding: 18px 20px;
+  margin-bottom: 18px;
+}
+
+section h2 {
+  margin-top: 0;
+  font-size: 18px;
+  border-bottom: 2px solid #edf0f2;
+  padding-bottom: 8px;
+  color: #0969da;
+}
+
+.output {
+  background: #0d1117;
+  color: #c9d1d9;
+  border-radius: 6px;
+  padding: 12px 14px;
+  font-family: "Consolas", "Courier New", monospace;
+  font-size: 13px;
+  white-space: pre-wrap;
+  overflow-x: auto;
+}
+
+.output .line {
+  margin: 2px 0;
+}
+
+.output .label {
+  color: #79c0ff;
+}
+
+.answers {
+  margin-top: 12px;
+  font-size: 14px;
+}
+
+.answers p {
+  margin: 4px 0;
+}
+
+.note {
+  margin: 12px 0 0;
+  font-size: 13px;
+  color: #57606a;
+  border-left: 3px solid #d0d7de;
+  padding-left: 10px;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  color: #57606a;
+  font-size: 13px;
+}

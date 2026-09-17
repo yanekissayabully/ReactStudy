@@ -1,0 +1,48 @@
+body {
+  font-family: Arial, sans-serif;
+  max-width: 700px;
+  margin: 30px auto;
+  padding: 0 15px;
+  color: #222;
+}
+
+h1 {
+  font-size: 22px;
+}
+
+.task {
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 10px 14px;
+  margin-bottom: 10px;
+}
+
+.task b {
+  font-size: 16px;
+}
+
+.task p {
+  margin: 4px 0;
+  font-size: 14px;
+  color: #444;
+}
+
+button {
+  padding: 6px 14px;
+  margin: 4px 6px 4px 0;
+  cursor: pointer;
+}
+
+pre {
+  background: #f4f4f4;
+  border: 1px solid #ddd;
+  padding: 10px;
+  white-space: pre-wrap;
+  font-size: 13px;
+}
+
+hr {
+  margin: 25px 0;
+  border: none;
+  border-top: 1px solid #ddd;
+}

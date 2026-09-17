@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Task 0</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>Task 0</h1>
+</header>
+
+<main>
+  <section id="task1">
+    <h2>1. Переменные и типы данных</h2>
+    <div class="output" id="out1"></div>
+    <div class="answers">
+      <p><b>let vs const:</b> <span id="a1-1"></span></p>
+      <p><b>typeof null:</b> <span id="a1-2"></span></p>
+      <p><b>Примитивные типы:</b> <span id="a1-3"></span></p>
+    </div>
+    <p class="note">Заметка: примитивы (string, number, boolean, null, undefined, symbol, bigint) копируются по значению, объекты и массивы — по ссылке, поэтому дальше в задании 5 это всплывёт отдельно.</p>
+  </section>
+
+
+  <section id="task2">
+    <h2>2. Массивы</h2>
+    <div class="output" id="out2"></div>
+    <p class="note">Оригинал не трогаем мап и фильтер возвращают новые массивы, редюс и инклюдс вообще ничего не меняют.</p>
+  </section>
+
+
+  <section id="task3">
+    <h2>3. Массив объектов</h2>
+    <div class="output" id="out3"></div>
+    <p class="note">Для passed использовал порог 70, как в фильтре чуть выше, считаю его проходным баллом для этого задания.</p>
+  </section>
+
+
+  <section id="task4">
+    <h2>4. Объекты</h2>
+    <div class="output" id="out4"></div>
+  </section>
+
+
+  <section id="task5">
+    <h2>5. Значения и ссылки</h2>
+    <div class="output" id="out5"></div>
+    <p class="note">Самое неожиданное для меня: спред делает только неглубокую копию — вложенный address всё ещё общий объект, поэтому city всё равно меняется у "оригинала". Чтобы скопировать и вложенный объект, пришлось копировать address отдельно.</p>
+  </section>
+
+  <!-- 6 -->
+  <section id="task6">
+    <h2>6. Функции</h2>
+    <div class="output" id="out6"></div>
+  </section>
+
+  <!-- 7 -->
+  <section id="task7">
+    <h2>7. Функции как значения</h2>
+    <div class="output" id="out7"></div>
+    <div class="answers">
+      <p><b>Функции в переменных:</b> <span id="a7-1"></span></p>
+      <p><b>Функции как аргументы:</b> <span id="a7-2"></span></p>
+      <p><b>add vs add():</b> <span id="a7-3"></span></p>
+    </div>
+  </section>
+
+  <!-- 8 -->
+  <section id="task8">
+    <h2>8. Область видимости (Scope)</h2>
+    <div class="output" id="out8"></div>
+    <div class="answers">
+      <p><b>Global scope:</b> <span id="a8-1"></span></p>
+      <p><b>Function scope:</b> <span id="a8-2"></span></p>
+      <p><b>Block scope:</b> <span id="a8-3"></span></p>
+      <p><b>var vs let vs const:</b> <span id="a8-4"></span></p>
+    </div>
+  </section>
+
+  <!-- 9 -->
+  <section id="task9">
+    <h2>9. Замыкания (Closure)</h2>
+    <div class="output" id="out9"></div>
+    <p class="note">Почему внутренняя функция помнит count: при вызове createCounter() создаётся новое пространство переменных, и возвращаемая функция держит на него ссылку (замыкание), поэтому у каждого счётчика — своя, изолированная переменная count.</p>
+  </section>
+
+  <!-- 10 -->
+  <section id="task10">
+    <h2>10. Деструктуризация, Spread и Rest</h2>
+    <div class="output" id="out10"></div>
+    <p class="note">Разница: spread "разворачивает" элементы наружу (в массив/объект/аргументы функции), rest наоборот — собирает оставшиеся аргументы в один массив внутри параметров функции.</p>
+  </section>
+
+  <!-- 11 -->
+  <section id="task11">
+    <h2>11. Optional Chaining и Default Values</h2>
+    <div class="output" id="out11"></div>
+    <p class="note">|| срабатывает на любое "falsy" значение (0, "", false, null, undefined), а ?? реагирует только на null/undefined. Поэтому для чисел/строк, где 0 или "" — валидные значения, безопаснее ??.</p>
+  </section>
+
+  <!-- Final -->
+  <section id="taskFinal">
+    <h2>Final Task — Студенты и оценки</h2>
+    <div class="output" id="outFinal"></div>
+  </section>
+
+</main>
+
+<footer>
+  <p>Task 0 — JavaScript Refresher · выполнено перед началом React</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
