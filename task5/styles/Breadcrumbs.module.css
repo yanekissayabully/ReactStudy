@@ -1,0 +1,18 @@
+.crumbs {
+  margin-bottom: 14px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.crumbs a {
+  color: var(--muted);
+}
+
+.crumbs a:hover {
+  color: var(--accent);
+}
+
+.crumbs [aria-current] {
+  color: var(--text);
+  font-weight: 600;
+}

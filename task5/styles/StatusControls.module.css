@@ -1,0 +1,71 @@
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.borrower {
+  display: flex;
+  flex: 1 1 180px;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.label {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.borrower input {
+  height: 34px;
+  padding: 0 10px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.note {
+  flex: 1 1 180px;
+  align-self: center;
+}
+
+.primary,
+.secondary {
+  height: 34px;
+  padding: 0 14px;
+  border-radius: var(--radius);
+}
+
+.primary {
+  border: 1px solid var(--accent);
+  background: var(--accent);
+  color: #fff;
+}
+
+.primary:hover:not(:disabled) {
+  background: var(--accent-hover);
+}
+
+.secondary {
+  border: 1px solid var(--border-strong);
+  background: var(--surface);
+}
+
+.secondary:hover:not(:disabled) {
+  background: var(--bg);
+}
+
+.primary:disabled {
+  opacity: 0.55;
+}
+
+.secondary:disabled {
+  color: var(--muted);
+}
+
+.updating {
+  align-self: center;
+  font-size: 13px;
+  color: var(--muted);
+}
