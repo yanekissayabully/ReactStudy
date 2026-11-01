@@ -1,0 +1,33 @@
+.count {
+  margin-bottom: 10px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 14px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  transition: opacity 0.15s;
+}
+
+.refreshing {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.skeleton {
+  height: 178px;
+  border-radius: var(--radius);
+  background: #eceef1;
+  animation: pulse 1.2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  50% {
+    opacity: 0.5;
+  }
+}
