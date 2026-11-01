@@ -1,0 +1,56 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.card {
+  padding: 16px 20px;
+}
+
+.card h2 {
+  margin-bottom: 8px;
+  font-size: 17px;
+}
+
+.card ul {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 0;
+  padding-left: 18px;
+}
+
+.card code {
+  padding: 1px 5px;
+  border-radius: 4px;
+  background: var(--bg);
+  font-size: 13px;
+}
+
+.tableWrap {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.table th,
+.table td {
+  padding: 8px 12px 8px 0;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+  white-space: nowrap;
+}
+
+.table td:last-child {
+  white-space: normal;
+}
+
+.back {
+  margin-top: 16px;
+}
