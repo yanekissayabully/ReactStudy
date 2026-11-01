@@ -1,0 +1,190 @@
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 16px 24px;
+  margin-bottom: 16px;
+  padding: 14px 16px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.field select {
+  height: 34px;
+  padding: 0 10px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.chips legend {
+  margin-bottom: 4px;
+  padding: 0;
+}
+
+.chip {
+  height: 34px;
+  padding: 0 12px;
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  background: var(--surface);
+}
+
+.chip:hover {
+  background: var(--bg);
+}
+
+.chipOn,
+.chipOn:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.tiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.tile {
+  padding: 14px 16px;
+}
+
+.tileLabel {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.tileValue {
+  margin-top: 2px;
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.tileHint {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.warn .tileValue {
+  color: var(--warning);
+}
+
+.skeleton {
+  height: 92px;
+  border-radius: var(--radius);
+  background: #eceef1;
+  animation: pulse 1.2s ease-in-out infinite;
+}
+
+.columns {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.card {
+  padding: 16px;
+}
+
+.cardTitle {
+  margin-bottom: 12px;
+  font-size: 16px;
+}
+
+.rows {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.rowTop {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 14px;
+}
+
+.rowTop span {
+  color: var(--muted);
+}
+
+.bar {
+  height: 8px;
+  margin-top: 4px;
+  border-radius: 999px;
+  background: var(--bg);
+}
+
+.barFill {
+  height: 100%;
+  border-radius: 999px;
+  background: var(--accent);
+  transition: width 0.25s;
+}
+
+.top {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 0;
+  padding-left: 20px;
+}
+
+.top li {
+  padding-left: 4px;
+}
+
+.top li::marker {
+  color: var(--muted);
+}
+
+.top a {
+  margin-right: 8px;
+  font-weight: 600;
+}
+
+.topValue {
+  margin-left: 8px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.more {
+  display: inline-block;
+  margin-top: 14px;
+}
+
+@keyframes pulse {
+  50% {
+    opacity: 0.5;
+  }
+}
