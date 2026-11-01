@@ -1,0 +1,169 @@
+:root {
+  --bg: #f4f5f7;
+  --surface: #ffffff;
+  --border: #d8dce1;
+  --border-strong: #b9bfc7;
+  --text: #1c2025;
+  --muted: #5d6671;
+  --accent: #1d5fbf;
+  --accent-hover: #174d9c;
+  --accent-soft: #e8f0fb;
+  --success: #17703f;
+  --success-soft: #e5f4ec;
+  --warning: #8a5a00;
+  --warning-soft: #fbf1db;
+  --danger: #b3261e;
+  --danger-soft: #fbeae9;
+  --radius: 6px;
+
+  color-scheme: light;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family:
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    "Helvetica Neue",
+    Arial,
+    sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+a {
+  color: var(--accent);
+}
+
+.page {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 24px 16px 48px;
+}
+
+.pageHeader {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.pageTitle {
+  font-size: 26px;
+  line-height: 1.2;
+}
+
+.pageLead {
+  margin-top: 4px;
+  color: var(--muted);
+}
+
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 7px 14px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--text);
+  font-weight: 500;
+  text-decoration: none;
+  line-height: 1.3;
+}
+
+.btn:hover:not(:disabled) {
+  background: var(--bg);
+}
+
+.btn:disabled {
+  opacity: 0.6;
+}
+
+.btnPrimary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.btnPrimary:hover:not(:disabled) {
+  background: var(--accent-hover);
+}
+
+.btnDanger {
+  border-color: var(--danger);
+  color: var(--danger);
+}
+
+.btnRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
