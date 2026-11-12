@@ -1,0 +1,23 @@
+.fallback {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.bar {
+  height: 20px;
+  border-radius: 4px;
+  background: #eceef1;
+  animation: pulse 1.2s ease-in-out infinite;
+}
+
+.title {
+  width: 40%;
+  height: 32px;
+}
+
+@keyframes pulse {
+  50% {
+    opacity: 0.5;
+  }
+}
