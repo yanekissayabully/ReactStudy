@@ -9,6 +9,8 @@ Task 6. Проект из task 5 (все маршруты, фильтры, па�
 > В задании `VITE_` — это Vite. В Next.js аналог — префикс **`NEXT_PUBLIC_`**
 > (только такие переменные попадают в браузерный код). `firebase.ts` вместо `firebase.js` — проект на TypeScript.
 
+**Деплой:** https://lab-inventory-auth.vercel.app
+
 ## Настройка Firebase
 
 1. [console.firebase.google.com](https://console.firebase.google.com) → *Add project*.

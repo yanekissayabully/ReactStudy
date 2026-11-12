@@ -8,3 +8,6 @@ next-env.d.ts
 # secrets - never commit; use .env.example as the template
 .env.local
 .env*.local
+
+.vercel
+.env*
