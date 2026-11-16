@@ -69,3 +69,16 @@
   font-size: 13px;
   color: var(--muted);
 }
+
+@media (max-width: 480px) {
+  .primary,
+  .secondary,
+  .borrower input {
+    height: 44px;
+  }
+
+  .primary,
+  .secondary {
+    flex: 1 1 100%;
+  }
+}

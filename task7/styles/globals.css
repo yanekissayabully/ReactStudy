@@ -29,6 +29,11 @@ html {
   -webkit-text-size-adjust: 100%;
 }
 
+img,
+svg {
+  max-width: 100%;
+}
+
 body {
   margin: 0;
   background: var(--bg);
@@ -159,6 +164,34 @@ a {
   overflow: hidden;
   clip: rect(0 0 0 0);
   white-space: nowrap;
+}
+
+/* Mobile: touch-friendly targets (44px), 16px inputs (stops iOS zoom-on-focus). */
+@media (max-width: 720px), (pointer: coarse) {
+  button,
+  .btn,
+  select,
+  input:not([type="checkbox"]):not([type="radio"]) {
+    min-height: 44px;
+  }
+
+  input,
+  select,
+  textarea {
+    font-size: 16px;
+  }
+
+  .page {
+    padding: 16px 12px 40px;
+  }
+
+  .pageTitle {
+    font-size: 22px;
+  }
+
+  .pageHeader > .btn {
+    flex: 1 1 100%;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -31,3 +31,18 @@
   border-radius: var(--radius);
   background: var(--surface);
 }
+
+@media (max-width: 560px) {
+  .toolbar {
+    padding: 12px;
+  }
+
+  .field {
+    flex: 1 1 100%;
+  }
+
+  .field input,
+  .field select {
+    height: 44px;
+  }
+}

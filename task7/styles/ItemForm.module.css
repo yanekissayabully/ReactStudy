@@ -81,3 +81,18 @@
     grid-template-columns: minmax(0, 1fr);
   }
 }
+
+@media (max-width: 480px) {
+  .form {
+    padding: 14px 12px;
+  }
+
+  .actions {
+    flex-direction: column-reverse;
+  }
+
+  .primary,
+  .secondary {
+    height: 44px;
+  }
+}

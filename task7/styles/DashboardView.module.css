@@ -103,7 +103,7 @@
 
 .columns {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
   gap: 16px;
   margin-bottom: 16px;
 }
@@ -186,5 +186,28 @@
 @keyframes pulse {
   50% {
     opacity: 0.5;
+  }
+}
+
+@media (max-width: 480px) {
+  .chip {
+    height: 44px;
+  }
+
+  .field,
+  .field select {
+    width: 100%;
+  }
+
+  .field select {
+    height: 44px;
+  }
+
+  .tiles {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .tileValue {
+    font-size: 22px;
   }
 }

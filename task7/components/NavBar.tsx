@@ -1,7 +1,9 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
+import ConnectionStatus from "@/components/ConnectionStatus";
 import { useAuth } from "@/context/AuthContext";
 import styles from "@/styles/NavBar.module.css";
 
@@ -20,8 +22,18 @@ export default function NavBar() {
   const pathname = usePathname();
   const router = useRouter();
   const { user, loading, logout } = useAuth();
+  const [open, setOpen] = useState(false);
+
+  // Escape closes the mobile menu.
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, [open]);
 
   async function handleLogout() {
+    setOpen(false);
     await logout();
     router.replace("/login");
   }
@@ -33,6 +45,27 @@ export default function NavBar() {
           Lab Inventory
         </Link>
 
+        <ConnectionStatus />
+
+        <button
+          type="button"
+          className={styles.toggle}
+          aria-expanded={open}
+          aria-controls="main-menu"
+          aria-label={open ? "Close menu" : "Open menu"}
+          onClick={() => setOpen((v) => !v)}
+        >
+          <span className={styles.bars} aria-hidden="true" />
+        </button>
+
+        <div
+          id="main-menu"
+          className={`${styles.menu} ${open ? styles.menuOpen : ""}`}
+          onClick={(e) => {
+            // Any link tap inside the menu closes it.
+            if ((e.target as HTMLElement).closest("a")) setOpen(false);
+          }}
+        >
         <ul className={styles.links}>
           {LINKS.map(({ href, label }) => (
             <li key={href}>
@@ -80,6 +113,7 @@ export default function NavBar() {
               </Link>
             </>
           )}
+        </div>
         </div>
       </nav>
     </header>

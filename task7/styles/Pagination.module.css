@@ -8,6 +8,8 @@
 }
 
 .pages {
+  flex-wrap: wrap;
+  justify-content: center;
   display: flex;
   gap: 4px;
   margin: 0;
@@ -33,4 +35,11 @@
   border-color: var(--accent);
   color: #fff;
   font-weight: 600;
+}
+
+@media (max-width: 480px) {
+  .page {
+    min-width: 44px;
+    height: 44px;
+  }
 }

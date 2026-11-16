@@ -113,3 +113,21 @@
     opacity: 0.5;
   }
 }
+
+@media (max-width: 480px) {
+  .header,
+  .fields,
+  .section,
+  .footer {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .name {
+    font-size: 20px;
+  }
+
+  .footer > * {
+    flex: 1 1 100%;
+  }
+}

@@ -33,3 +33,11 @@
 .secondary:disabled {
   color: var(--muted);
 }
+
+@media (max-width: 480px) {
+  .secondary,
+  .danger {
+    height: 44px;
+    flex: 1 1 100%;
+  }
+}
