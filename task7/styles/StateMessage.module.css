@@ -1,0 +1,22 @@
+.message {
+  padding: 36px 20px;
+  text-align: center;
+}
+
+.title {
+  font-weight: 600;
+  font-size: 17px;
+}
+
+.text {
+  margin-top: 4px;
+  color: var(--muted);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+}

@@ -1,0 +1,13 @@
+node_modules/
+.next/
+out/
+*.tsbuildinfo
+next-env.d.ts
+.vercel
+
+# secrets - never commit; use .env.example as the template
+.env.local
+.env*.local
+
+.vercel
+.env*

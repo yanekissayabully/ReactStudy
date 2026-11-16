@@ -1,0 +1,63 @@
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: 32px;
+  margin-bottom: 32px;
+}
+
+.title {
+  font-size: clamp(28px, 5vw, 40px);
+  line-height: 1.15;
+}
+
+.lead {
+  margin: 12px 0 20px;
+  color: var(--muted);
+  font-size: 17px;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  border-radius: 14px;
+}
+
+.tour {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 14px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.card {
+  display: block;
+  height: 100%;
+  padding: 16px;
+  color: var(--text);
+  text-decoration: none;
+  transition: border-color 0.15s;
+}
+
+.card:hover {
+  border-color: var(--accent);
+}
+
+.cardTitle {
+  margin-bottom: 4px;
+  font-size: 16px;
+  color: var(--accent);
+}
+
+.card p {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+@media (max-width: 720px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+}
