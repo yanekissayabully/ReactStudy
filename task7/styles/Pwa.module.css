@@ -1,0 +1,83 @@
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.online {
+  background: var(--success-soft);
+  color: var(--success);
+}
+
+.offline {
+  background: var(--warning-soft);
+  color: var(--warning);
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.banner {
+  padding: 8px 16px;
+  background: var(--warning-soft);
+  color: var(--warning);
+  font-size: 14px;
+  text-align: center;
+  border-bottom: 1px solid var(--border);
+}
+
+.update {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  left: 16px;
+  z-index: 50;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 12px 14px;
+  border: 1px solid var(--accent);
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: 0 6px 24px rgb(0 0 0 / 0.18);
+}
+
+.updateActions {
+  display: flex;
+  gap: 8px;
+}
+
+.offlinePage {
+  max-width: 480px;
+  margin: 24px auto;
+  padding: 32px 20px;
+  text-align: center;
+}
+
+.offlineIcon {
+  font-size: 44px;
+  line-height: 1;
+}
+
+.offlineTitle {
+  margin: 12px 0 6px;
+  font-size: 24px;
+}
+
+.offlineText {
+  margin-bottom: 20px;
+  color: var(--muted);
+}
