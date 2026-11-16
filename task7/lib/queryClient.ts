@@ -16,8 +16,10 @@ export function makeQueryClient(): QueryClient {
         // The fake API fails on purpose; show the error and let the user press
         // "Try again" instead of silently retrying in the background.
         retry: false,
+        networkMode: "always", // run queryFn offline so the service worker can answer
         refetchOnWindowFocus: true,
       },
+      mutations: { networkMode: "always" },
     },
   });
 }

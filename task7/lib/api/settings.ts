@@ -1,4 +1,4 @@
-export const DATA_KEY = "lab-inventory-router-v1";
+export const DATA_KEY = "lab-inventory-edits-v2";
 
 export interface ApiConfig {
   minDelay: number;

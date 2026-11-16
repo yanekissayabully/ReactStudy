@@ -1,5 +1,5 @@
 import { DATA_KEY, getApiConfig } from "@/lib/api/settings";
-import { seedItems } from "@/lib/api/seed";
+import { fetchCatalog } from "@/lib/api/catalog";
 import type {
   Item,
   ItemChanges,
@@ -8,19 +8,41 @@ import type {
   ItemsQuery,
 } from "@/lib/types";
 
-function readData(): Item[] {
-  const raw = localStorage.getItem(DATA_KEY);
-  if (raw) {
-    try {
-      return JSON.parse(raw) as Item[];
-    } catch {}
+// Data model: the public catalog comes from the HTTP API (cacheable by the
+// service worker); the user's own changes are an overlay stored in localStorage.
+// edits[id] = full replacement item, or null when the item was deleted.
+type Edits = Record<number, Item | null>;
+
+function readEdits(): Edits {
+  try {
+    return JSON.parse(localStorage.getItem(DATA_KEY) ?? "{}") as Edits;
+  } catch {
+    return {};
   }
-  writeData(seedItems);
-  return seedItems;
 }
 
-function writeData(items: Item[]): void {
-  localStorage.setItem(DATA_KEY, JSON.stringify(items));
+function writeEdits(edits: Edits): void {
+  localStorage.setItem(DATA_KEY, JSON.stringify(edits));
+}
+
+async function readData(): Promise<Item[]> {
+  const base = await fetchCatalog();
+  const edits = readEdits();
+  const merged = new Map<number, Item>(base.map((item) => [item.id, item]));
+  for (const [id, value] of Object.entries(edits)) {
+    if (value === null) merged.delete(Number(id));
+    else merged.set(Number(id), value);
+  }
+  return [...merged.values()].sort((a, b) => a.id - b.id);
+}
+
+function saveItem(item: Item): void {
+  writeEdits({ ...readEdits(), [item.id]: item });
+}
+
+function nextId(items: Item[]): number {
+  const used = [...items.map((i) => i.id), ...Object.keys(readEdits()).map(Number)];
+  return used.length > 0 ? Math.max(...used) + 1 : 1;
 }
 
 function abortError(): DOMException {
@@ -31,7 +53,7 @@ export function isAbortError(error: unknown): boolean {
   return error instanceof DOMException && error.name === "AbortError";
 }
 
-function fakeRequest<T>(operation: () => T, signal?: AbortSignal): Promise<T> {
+function fakeRequest<T>(operation: () => T | Promise<T>, signal?: AbortSignal): Promise<T> {
   const { minDelay, maxDelay, errorChance } = getApiConfig();
 
   return new Promise<T>((resolve, reject) => {
@@ -51,11 +73,9 @@ function fakeRequest<T>(operation: () => T, signal?: AbortSignal): Promise<T> {
         return;
       }
 
-      try {
-        resolve(operation());
-      } catch (error) {
-        reject(error);
-      }
+      Promise.resolve()
+        .then(operation)
+        .then(resolve, reject);
     }, delay);
 
     function onAbort() {
@@ -96,10 +116,10 @@ export function getItems(
   query: ItemsQuery,
   signal?: AbortSignal,
 ): Promise<ItemsPage> {
-  return fakeRequest(() => {
+  return fakeRequest(async () => {
     const needle = query.search.trim().toLowerCase();
 
-    const matches = readData()
+    const matches = (await readData())
       .filter((item) => query.status === "all" || item.status === query.status)
       .filter(
         (item) => query.category === "all" || item.category === query.category,
@@ -140,47 +160,47 @@ export function getItem(
   signal?: AbortSignal,
 ): Promise<Item | null> {
   return fakeRequest(
-    () => readData().find((item) => item.id === id) ?? null,
+    async () => (await readData()).find((item) => item.id === id) ?? null,
     signal,
   );
 }
 
 export function createItem(input: ItemInput): Promise<Item> {
-  return fakeRequest(() => {
-    const items = readData();
+  return fakeRequest(async () => {
+    const items = await readData();
     assertValid(items, input);
 
     const created: Item = {
       ...input,
-      id: items.length > 0 ? Math.max(...items.map((item) => item.id)) + 1 : 1,
+      id: nextId(items),
       status: "available",
       assignedTo: null,
     };
-    writeData([...items, created]);
+    saveItem(created);
     return created;
   });
 }
 
 export function updateItem(id: number, changes: ItemChanges): Promise<Item> {
-  return fakeRequest(() => {
-    const items = readData();
+  return fakeRequest(async () => {
+    const items = await readData();
     const current = items.find((item) => item.id === id);
     if (!current) throw new Error("Item not found. It may have been removed.");
     assertValid(items, changes, id);
 
     const updated: Item = { ...current, ...changes, id };
-    writeData(items.map((item) => (item.id === id ? updated : item)));
+    saveItem(updated);
     return updated;
   });
 }
 
 export function deleteItem(id: number): Promise<{ id: number }> {
-  return fakeRequest(() => {
-    const items = readData();
+  return fakeRequest(async () => {
+    const items = await readData();
     if (!items.some((item) => item.id === id)) {
       throw new Error("Item not found. It may have been removed.");
     }
-    writeData(items.filter((item) => item.id !== id));
+    writeEdits({ ...readEdits(), [id]: null });
     return { id };
   });
 }
